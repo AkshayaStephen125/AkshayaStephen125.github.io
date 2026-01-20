@@ -8,6 +8,8 @@ import remindly from "./assets/ReminderAlert.jpg";
 import remindlyvdo from "./assets/remindly.mp4";
 import inrglobaly from "./assets/inr.jpg";
 import inrglobalyvdo from "./assets/inr2globaly.mp4";
+import cicd from "./assets/cicd.jpg";
+import cicdvdo from "./assets/cicd_demo.mp4";
 import hearzap from "./assets/hearzap.jpg";
 import cmp from "./assets/cmp.jpg";
 
@@ -243,6 +245,7 @@ export default function App() {
   }
 ]
 ,
+      link: "https://github.com/AkshayaStephen125/Project-Remindly",
       img: remindly,
       video: remindlyvdo, 
     },
@@ -273,13 +276,14 @@ export default function App() {
   }
 ]
 ,
+      link: "https://github.com/AkshayaStephen125/Project-INR2GLOBALY",
       img: inrglobaly,
       video: inrglobalyvdo
     },
     {
       title: "CI/CD Implementation",
-      desc: ["This portfolio website is configured with a Continuous Integration and Continuous Deployment (CI/CD) pipeline implemented using GitHub Actions to automate the testing, build, and deployment process. The pipeline is triggered on every code commit and push, ensuring that updates are automatically validated and deployed to the live site without any manual intervention. This setup improves development efficiency, minimizes deployment-related errors, and ensures that the website consistently remains in a production-ready state.",
-      "This CI/CD implementation was carried out to gain practical, hands-on experience with automated deployment workflows and modern DevOps practices. The workflow is defined using a YAML configuration file in GitHub Actions, where branch-specific jobs orchestrate each stage of the pipeline, including source code checkout, dependency installation, automated testing, build generation, and deployment to GitHub Pages. Through this implementation, I developed a deeper understanding of event-driven pipelines, deployment automation, and maintaining code quality through continuous validation."],
+      desc: ["This portfolio website implements a fully automated CI/CD pipeline to build and deploy a modern JavaScript frontend application using GitHub Actions. The pipeline ensures reliable, repeatable builds and seamless deployment to GitHub Pages whenever changes are pushed to the main branch. By automating the build and deployment lifecycle, the project eliminates manual intervention, improves delivery speed, and ensures that only production-ready artifacts are published, making it suitable for professional-grade frontend applications.",
+      "The workflow is designed with separate build and deploy jobs to maintain clear separation of concerns and enforce dependency control. The build stage checks out the repository, configures a Node.js 20 environment, installs dependencies, and generates an optimized production build, which is stored as a versioned artifact. The deploy stage consumes this artifact and securely publishes it to GitHub Pages using token-based authentication, ensuring controlled access and safe deployments. Conditional execution and artifact-based handoff improve reliability, traceability, and scalability of the deployment process."],
           techStack: [
       {
         category: "Version Control",
@@ -295,9 +299,9 @@ export default function App() {
       }
     ]
     ,
-      link: "https://www.hearzap.com/",
-      // img: inrglobaly,
-      // video: inrglobalyvdo
+      link: "https://github.com/AkshayaStephen125/AkshayaStephen125.github.io/blob/main/.github/workflows/main.yml",
+      img: cicd,
+      video: cicdvdo
     },
        {
       title: "Hearzap — Complete Hearing Care Platform",

@@ -588,7 +588,7 @@ footer {
 
 /* Image */
 .project-img {
-  width: 50%;         /* or max-width: 100%; */
+  width: 50%;       
   height: auto;
   /* object-fit: contain; */
   border-radius: 10px;
