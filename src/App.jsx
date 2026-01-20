@@ -1,0 +1,489 @@
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { useEffect } from "react";
+import "./App.css";
+
+import heroImg from "./assets/cover.png";
+import skillImg from "./assets/skills.png";
+import remindly from "./assets/ReminderAlert.jpg";
+import remindlyvdo from "./assets/remindly.mp4";
+import inrglobaly from "./assets/inr.jpg";
+import inrglobalyvdo from "./assets/inr2globaly.mp4";
+import hearzap from "./assets/hearzap.jpg";
+import cmp from "./assets/cmp.jpg";
+
+
+
+export default function App() {
+  useEffect(() => {
+    // Intersection Observer for reveal animations
+    const items = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    items.forEach((item) => observer.observe(item));
+
+    // Smooth scroll for header links
+    const links = document.querySelectorAll("header a[href^='#']");
+    links.forEach((link) => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute("href"));
+        target.scrollIntoView({ behavior: "smooth" });
+      });
+    });
+  }, []);
+
+   const go = (id) => {
+  const el = document.getElementById(id);
+  if (el) {
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+};
+
+  return (
+    <>
+     <header className="header">
+  <div className="header-inner">
+    <nav>
+      <span onClick={() => go("hero")}>Home</span>
+      <span onClick={() => go("about")}>About Me</span>
+      <span onClick={() => go("skills")}>Skills & Tools</span>
+      <span onClick={() => go("projects")}>Projects</span>
+      <span onClick={() => go("contact")}>Contact</span>
+    </nav>
+  </div>
+</header>
+
+
+      {/* HERO */}
+      <section id="hero" className="hero">
+        <div className="hero-inner">
+          <div className="hero-text reveal">
+            <h1>Akshaya Stephen</h1>
+            <div className=" reveal">
+    <h2>Python & Django Developer</h2>
+    <h3>6+ Years of Experience in Backend & Data Engineering</h3>
+    {/* <p>Passionate Full-Stack Engineer</p> */}
+  </div>
+            <div className="social-icons">
+  <a
+    href="https://github.com/AkshayaStephen125/"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="GitHub"
+  >
+    <FaGithub />
+  </a>
+&nbsp;&nbsp;&nbsp;&nbsp;
+  <a
+    href="https://www.linkedin.com/in/akshaya-stephen-0982b5171/"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="LinkedIn"
+  >
+    <FaLinkedin />
+  </a>
+</div>
+  <div className="buttons">
+              <span onClick={() => go("contact")} className="btn primary" style={{ marginTop: "180px" }}>Contact Me</span>
+            </div>
+
+          </div>
+           <div className="hero-image reveal">
+        <div className="">
+          <img src={heroImg} alt="Akshaya Stephen" />
+        </div>
+      </div>
+        </div>
+      </section>
+
+      {/* EXPERIENCE
+      <section id="experience" className="section light">
+        <h2 className="reveal">Experience</h2>
+        <div className="timeline">
+          <div className="timeline-line"></div>
+          {[
+            { year: "2024 - Present", role: "Full Stack and Data Engineering", company: "Career Sabbatical | Professional Development" },
+            { year: "2023 - 2024", role: "Software Programmer - Python", company: "Iza Medi Technologies Pvt. Ltd. (Product Based Company)" },
+            { year: "2022 - 2023", role: "Python Developer", company: "Seaant Web Technologies Pvt. Ltd." },
+            { year: "2020 - 2022", role: "Software Developer", company: "MTL WebKing Technology Pvt. Ltd." },
+            { year: "2019 - 2020", role: "Software Developer Intern", company: "Intellize Software Solutions" }
+          ].map((item, i) => (
+            <div key={i} className={`timeline-item reveal ${i % 2 ? "right" : "left"}`}>
+              <div className="dot"></div>
+              <div className="content">
+                <span>{item.year}</span>
+                <h3>{item.role}</h3>
+                <p>{item.company}</p>
+
+              </div>
+            </div>
+          ))}
+        </div>
+      </section> */}
+ {/* ABOUT */}
+      <section id="about" className="section light">
+        <h2 className="reveal">About Me</h2>
+        <div className="about-wrapper reveal">
+       <p>My journey as a developer began with a simple curiosity—how powerful ideas can be transformed into reliable software systems. Over the past six years, that curiosity has grown into a deep passion for building robust, scalable, and meaningful digital solutions.</p>
+        <br/>
+      <p>I am Akshaya Stephen, a Python developer who has spent years crafting backend systems using Python and Django, turning complex business requirements into clean, efficient, and secure applications and building REST APIs with JWT-based authentication, delivering secure and scalable backend services that power real-world applications. Along the way, I expanded my skills beyond backend development, stepping into full-stack engineering by working with ReactJS and exploring GraphQL, using Docker for containerization and CI/CD pipelines, while also building data workflows where I design and manage ETL pipelines and orchestration systems using Apache Airflow to support data-driven decision-making.</p>
+      <br/>
+      <p>Having worked in a healthcare product-based company, I gained strong hands-on experience across B2B and B2C domains, building end-to-end systems from patient- and customer-facing applications to administration and management dashboards, covering complete workflows from purchase and sales processing to secure role-based permissions, automated reporting, and real-time notifications. </p>
+      <br/>
+      <p>My experience in service-based companies further shaped my adaptability. I worked across multiple projects, contributed to different application modules, and supported long-term maintenance and enhancements—learning how to build systems that evolve gracefully over time.</p>
+      <br/>
+      <p>I am passionate about continuous learning and growing my skills, exploring new technologies and best practices to strengthen my capabilities. My goal is to build robust, scalable, and meaningful software that not only solves real problems but also delivers tangible business value.</p>
+
+</div>
+      </section>
+{/* SKILLS */}
+<section id="skills" className="section skills-section">
+  <div className="skills-container reveal">
+    {/* Title */}
+     <h2 className="reveal">Skills & Tools</h2>
+
+    {/* Photo + Card wrapper */}
+    <div className="skills-photo-wrapper">
+      
+      {/* Photo on the left */}
+      <div className="photo-container reveal" style={{alignItems: "center"}}>
+        <img src={skillImg} alt="Akshaya Stephen" />
+      </div>
+
+      {/* Skills card on the right */}
+      <div className="skill-card reveal">
+
+  <div className="skill-category">
+    <div className="category-title">Programming Languages</div>
+    <div className="category-skills">Python • Java • C++ • SQL • JavaScript</div>
+  </div>
+
+  <div className="skill-category">
+    <div className="category-title">Backend Frameworks & APIs</div>
+    <div className="category-skills">Django • DRF • Flask • FastAPI • REST API • GraphQL(Graphene for Django & Strawberry for FAST API )</div>
+  </div>
+
+  <div className="skill-category">
+    <div className="category-title">Front End Technologies</div>
+    <div className="category-skills">HTML • CSS • Bootstrap • JavaScript • jQuery • ReactJS</div>
+  </div>
+
+  <div className="skill-category">
+    <div className="category-title">Database Management</div>
+    <div className="category-skills">MySQL • PostgreSQL • Python ORM</div>
+  </div>
+
+  <div className="skill-category">
+    <div className="category-title">Version Control</div>
+    <div className="category-skills">Git • GitHub</div>
+  </div>
+
+  <div className="skill-category">
+    <div className="category-title">Deployment & DevOps</div>
+    <div className="category-skills">GCP • AWS • CI/CD Pipelines • Docker</div>
+  </div>
+
+  <div className="skill-category">
+    <div className="category-title">Tools</div>
+    <div className="category-skills">VS Code/PyCharm • Postman/SwaggerUI • Figma • Jira • Apache Airflow • Power BI</div>
+  </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+      {/* PROJECTS */}
+      <section id="projects" className="section light">
+        <h2 className="reveal">Insights on My Works</h2>
+ <div className="projects-list">
+  {[
+    {
+      title: "Remindly",
+      desc: [
+  "Remindly is a full-stack reminder management application designed to help users schedule tasks and receive timely notifications, ensuring important events and deadlines are never missed. The application enables users to create, update, and manage reminders through a clean and intuitive interface, while delivering alerts at precise times using real-time communication. The front end is built with React.js for a responsive and interactive user experience and styled using Tailwind CSS to maintain a modern, consistent design. On the back end, Django powers the core business logic and exposes a GraphQL API, allowing flexible and efficient data querying while minimizing over-fetching and improving overall performance.",
+  "I built this project to strengthen my full-stack development expertise and gain hands-on experience with modern backend architectures and asynchronous systems. The project was designed to deeply explore GraphQL as an API layer, RabbitMQ as a messaging queue, and Celery for background task processing, particularly for time-based reminder scheduling and notification delivery. To ensure real-time updates, WebSockets were integrated for instant push notifications, creating a smooth and event-driven user experience. Through this project, I focused on building a scalable, decoupled architecture that demonstrates practical knowledge of full-stack development, messaging queues, and real-time systems working together in a production-like environment."
+],
+      techStack: [
+  {
+    category: "Frontend",
+    items: ["React.js", "Tailwind CSS"]
+  },
+  {
+    category: "Backend",
+    items: ["Django", "GraphQL API"]
+  },
+  {
+    category: "Async & Real-Time",
+    items: ["RabbitMQ", "Celery", "WebSockets"]
+  },
+  {
+    category: "Database",
+    items:  ["PostgreSQL (Django User & Admin Models)",
+    "MongoDB (Application Data)"]
+  },
+  {
+    category: "DevOps",
+    items: ["Docker"]
+  }
+]
+,
+      img: remindly,
+      video: remindlyvdo, 
+    },
+    {
+      title: "INR2Globally",
+      desc: ["INR2Globally is a data analytics and reporting project designed to extract, track, and analyze day-to-day global currency exchange rates with respect to the Indian Rupee (INR). The system enables both historical and trend-based analysis of currency movements, including daily, monthly, and comparative rate changes. These insights are visualized through interactive Power BI dashboards, allowing users to easily monitor currency fluctuations, identify trends, and make data-driven interpretations from exchange rate patterns.",
+      "I built this project to gain hands-on expertise in data engineering and analytics workflows, with a strong focus on ETL automation and orchestration. The solution is implemented using Apache Airflow to design and schedule ETL pipelines that automatically extract currency data from external APIs, transform it into an analytics-ready format, and load it into PostgreSQL. Airflow schedulers ensure consistent and timely data ingestion, while PostgreSQL serves as a reliable analytical data source for Power BI. The dashboards leverage DAX queries to enable efficient data modeling, real-time reporting, and meaningful visual insights, demonstrating a complete end-to-end data analytics pipeline from ingestion to visualization. The implementation reflects practical experience in building scalable, maintainable data pipelines and delivering insights through business intelligence tools."],
+      techStack: [
+        {
+          category: "Backend & Processing",
+          items: ["Python"]
+        },
+  {
+    category: "ETL & Orchestration",
+    items: ["Apache Airflow", "ETL Pipelines"]
+  },
+  {
+    category: "Database",
+    items: ["PostgreSQL"]
+  },
+  {
+    category: "Analytics & Visualization",
+    items: ["Power BI"]
+  },
+  {
+    category: "Devops",
+    items: ["Docker"]
+  }
+]
+,
+      img: inrglobaly,
+      video: inrglobalyvdo
+    },
+    {
+      title: "CI/CD Implementation",
+      desc: ["This portfolio website is configured with a Continuous Integration and Continuous Deployment (CI/CD) pipeline implemented using GitHub Actions to automate the testing, build, and deployment process. The pipeline is triggered on every code commit and push, ensuring that updates are automatically validated and deployed to the live site without any manual intervention. This setup improves development efficiency, minimizes deployment-related errors, and ensures that the website consistently remains in a production-ready state.",
+      "This CI/CD implementation was carried out to gain practical, hands-on experience with automated deployment workflows and modern DevOps practices. The workflow is defined using a YAML configuration file in GitHub Actions, where branch-specific jobs orchestrate each stage of the pipeline, including source code checkout, dependency installation, automated testing, build generation, and deployment to GitHub Pages. Through this implementation, I developed a deeper understanding of event-driven pipelines, deployment automation, and maintaining code quality through continuous validation."],
+          techStack: [
+      {
+        category: "Version Control",
+        items: ["Git", "GitHub"]
+      },
+      {
+        category: "CI/CD & Automation",
+        items: ["GitHub Actions", "YAML"]
+      },
+      {
+        category: "Deployment",
+        items: ["GitHub Pages"]
+      }
+    ]
+    ,
+      link: "https://www.hearzap.com/",
+      // img: inrglobaly,
+      // video: inrglobalyvdo
+    },
+       {
+      title: "Hearzap — Complete Hearing Care Platform",
+      desc: ["Hearzap is India’s first comprehensive digital platform for end-to-end hearing care, offering users the ability to take rapid hearing tests, consult with certified audiologists, and find personalized hearing aids. Combining online and offline services through a network of 150+ experience stores, Hearzap makes hearing health accessible and convenient, providing in-store and virtual consultations, a curated marketplace for hearing aids, and tools to increase awareness about hearing care. The platform leverages technology to deliver personalized solutions, reduce the stigma around hearing loss, and ensure users receive professional support tailored to their needs.",
+        "Through this project, I transitioned from a service-based role to working directly with the client’s product-based company, contributing to the product launch and delivering APIs for mobile developers. I implemented business logic for customer-facing websites, management dashboards, and administrative tools, ensuring seamless functionality across platforms. Additionally, I developed automated report generation using CronJobs, set up SMS alerts on scheduled times, and created dynamic reports such as audiogram reports from the customer’s perspective. My responsibilities also included end-to-end production support, timely bug fixes, and continuous feature updates to enhance the product’s performance and user experience."
+      ],
+      techStack: [
+        {
+          category: "Backend & APIs",
+          items: ["Python", "Django", "REST APIs"]
+        },
+        {
+          category: "Frontend & Web",
+          items: ["HTML", "CSS", "Bootstrap", "JavaScript"]
+        },
+        {
+          category: "Database",
+          items: ["PostgreSQL"]
+        },
+        {
+          category: "Automation & Scheduling",
+          items: ["CronJobs", "SMS Alerts"]
+        },
+        {
+          category: "DevOps & Deployment",
+          items: ["Git", "GCP","AWS S3"]
+        }
+      ],
+
+      link: "https://play.google.com/store/apps/details?id=com.cruisecity.app",
+      img: hearzap
+    },
+      {
+      title: "Cruise City – Explore on Shore",
+      desc: ["Cruise City is a mobile application designed to help cruise passengers maximize their limited shore time by delivering personalized city guides and recommendations tailored to their interests, cruise itinerary, and available duration. The application provides curated suggestions for attractions, restaurants, and local events, along with interactive maps for easy navigation, traveler reviews and ratings, and the ability to explore and shop local products with convenient pick-up options at cruise terminals. In addition to enhancing traveler convenience, the platform promotes sustainable tourism by highlighting eco-friendly experiences and offering practical travel tips, improving the overall visitor experience in destinations such as Copenhagen.",
+        "As part of this implementation, I was responsible for developing the core backend business logic for the administration dashboard and designing secure RESTful APIs to support seamless mobile application integration. The APIs were implemented with JWT-based authentication to ensure secure access and role-based operations. I developed a key offline-first feature, implementing a PostgreSQL-based local database that automatically synchronizes with the central server whenever network connectivity becomes available.This approach ensured reliable data availability, consistent CRUD operations, and efficient data synchronization, resulting in a resilient system that supports real-world mobile usage scenarios and improves both user experience and administrative efficiency."
+      ],
+      techStack: [
+      {
+        category: "Backend & APIs",
+        items: ["Python", "Django", "REST APIs", "JWT Authentication"]
+      },
+      {
+        category: "Frontend & Dashboard",
+        items: ["HTML", "CSS", "JavaScript"]
+      },
+      {
+        category: "Database",
+        items: ["PostgreSQL", "Offline Sync"]
+      },
+      {
+        category: "Mobile Integration",
+        items: ["API for iOS & Android Apps"]
+      },
+      {
+        category: "DevOps & Deployment",
+        items: ["Git", "GCP", "AWS S3"]
+      }
+    ],
+
+      link: "https://play.google.com/store/apps/details?id=com.cruisecity.app",
+      img: cmp
+    },
+    // {
+    //   title: "CMP",
+    //   desc: ["Personal portfolio showcasing projects and skills."],
+    //   tech: "React • Tailwind CSS • Framer Motion",
+    //   link: "https://www.mtlwebking.com/",
+    //   img: mtl
+    // },
+  ].map((proj, i) => (
+    <div key={i} className="project-card reveal">
+
+      {/* Media Row */}
+      <div className="media-row">
+      {proj.link ? (
+  // <a href={proj.link} target="_blank" rel="noopener noreferrer">
+    <img src={proj.img} alt={proj.title} className="project-img" />
+  // </a>
+) : (
+  <img src={proj.img} alt={proj.title} className="project-img" />
+)}
+
+
+        {/* Render video ONLY if it exists */}
+{proj.video ? (
+  <video
+    className="project-video"
+    src={proj.video}
+    controls
+    muted
+    playsInline
+  />
+): (
+  <div className="video-placeholder"></div>
+)}
+
+
+      </div>
+ <div>
+    <a href={proj.link} target="_blank" rel="noopener noreferrer" className="project-link">View Project</a>
+  </div>
+  <div className="project-content-grid">
+     <div className="project-left">
+      <h3>{proj.title}</h3>
+      {proj.desc.map((para, index) => (
+  <p key={index}>{para}</p>
+))}
+</div>
+<div className="project-right">
+     <div className="tech-stack-section">
+  {proj.techStack.map((group, index) => (
+    <div key={index} className="tech-group">
+      <h4 className="tech-heading">{group.category}</h4>
+
+     <div className="tech-items">
+  {group.items.join(" • ")}
+</div>
+    </div>
+  ))}
+</div>
+</div>
+
+      </div>
+    </div>
+  ))}
+</div>
+
+
+      </section>
+{/* PROJECT LINKS */}
+<section id="project-links" className="section light">
+  <h2 className="reveal">Other Self-Driven Projects</h2>
+  <div className="project-links-card reveal">
+    {[
+      { name: "Drowsiness-Detection(Python & OpenCV)", link: "https://github.com/AkshayaStephen125/Drowsiness-Detection" },
+      { name: "WooEats(Python, Django & Android)", link: "https://myblog.com" },
+      { name: "Todo(FastAPI & GraphQL Strawberry)", link: "https://todomgr.com" },
+      { name: "E-Attendance(Java)", link: "https://github.com/AkshayaStephen125/E-Attendance" },
+      { name: "Online Yearbook(Java)", link: "https://github.com/AkshayaStephen125/Online-yearbook" },
+      // { name: "Chat App", link: "https://chatapp.com" },
+    ].map((proj, i) => (
+      <u><a
+        key={i}
+        href={proj.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="simple-project-link"
+      >
+        {proj.name}
+      </a></u>
+    ))}
+  </div>
+</section>
+
+
+
+      {/* CONTACT */}
+      <section id="contact" className="contact reveal">
+        <h2>Contact</h2>
+        <p>Email: akshayastephen125@gmail.com</p><br/>
+              <div className="social-icons">
+  <a
+    href="https://github.com/AkshayaStephen125/"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="GitHub"
+  >
+    <FaGithub />
+  </a>
+&nbsp;&nbsp;&nbsp;&nbsp;
+  <a
+    href="https://www.linkedin.com/in/akshaya-stephen-0982b5171/"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="LinkedIn"
+  >
+    <FaLinkedin />
+  </a>
+</div>
+      </section>
+
+      {/* FOOTER */}
+      <footer>
+        © {new Date().getFullYear()} Akshaya Stephen
+      </footer>
+    </>
+  );
+}
