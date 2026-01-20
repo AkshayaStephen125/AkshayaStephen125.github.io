@@ -56,7 +56,7 @@ export default function App() {
     <nav>
       <span onClick={() => go("hero")}>Home</span>
       <span onClick={() => go("about")}>About Me</span>
-      <span onClick={() => go("skills")}>Skills & Tools</span>
+      <span onClick={() => go("skills")}>Skills</span>
       <span onClick={() => go("projects")}>Projects</span>
       <span onClick={() => go("contact")}>Contact</span>
     </nav>
@@ -71,9 +71,9 @@ export default function App() {
             <h1>Akshaya Stephen S</h1>
             <div className=" reveal">
     <h2>Python & Django Developer</h2>
-    <h3>6+ Years of Experience in Backend & Data Engineering</h3>
-    {/* <p>Passionate Full-Stack Engineer</p> */}
-  </div>
+    <h3>6+ Years of Experience Building Software Solutions</h3>
+    <p>Passionate in Full-Stack and Data Engineering</p>
+  </div><br/><br/>
             <div className="social-icons">
   <a
     href="https://github.com/AkshayaStephen125/"
