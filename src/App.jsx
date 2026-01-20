@@ -68,7 +68,7 @@ export default function App() {
       <section id="hero" className="hero">
         <div className="hero-inner">
           <div className="hero-text reveal">
-            <h1>Akshaya Stephen</h1>
+            <h1>Akshaya Stephen S</h1>
             <div className=" reveal">
     <h2>Python & Django Developer</h2>
     <h3>6+ Years of Experience in Backend & Data Engineering</h3>
